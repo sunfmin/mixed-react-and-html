@@ -80,6 +80,7 @@ function Blueprint() {
     const [innerOpen, setInnerOpen] = useState(false)
     const [dialogOpen, setDialogOpen] = useState(false)
     const [popoverOpen, setPopoverOpen] = useState(false)
+    const [innerPopoverOpen, setInnerPopoverOpen] = useState(false)
 
     const [popoverAnchor, setPopoverAnchor] = useState<any>(null)
 
@@ -124,6 +125,17 @@ function Blueprint() {
                     }}>popover</button>
 
                     <div style={{ width: "300px", minHeight: "300px" }}>GHIJ</div>
+
+                    <BPopover isOpen={innerPopoverOpen} onClose={e => {
+                        setInnerPopoverOpen(false)
+                    }} position={BPopoverPosition.AUTO}
+                    >
+                        <button onClick={e => {
+                            setInnerPopoverOpen(!dialogOpen)
+                        }}>popover inner</button>
+
+                        <div style={{ width: "300px", minHeight: "300px" }}>GHIJ</div>
+                    </BPopover>
                 </BPopover>
 
             </BDrawer>
